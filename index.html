@@ -4,7 +4,709 @@
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
+
 <html>
+	<style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'SF Pro Display', sans-serif;
+            line-height: 1.6;
+            color: #2D3748;
+            background: #F5F7FA;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #667EEA 0%, #764BA2 100%);
+            color: white;
+            padding: 20px 0;
+            box-shadow: 0 4px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
+
+        .logo h1 {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .cta-button {
+            background: white;
+            color: #667EEA;
+            padding: 12px 24px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: transform 0.2s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #667EEA 0%, #764BA2 100%);
+            color: white;
+            padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-text h2 {
+            font-size: 52px;
+            margin-bottom: 24px;
+            font-weight: bold;
+            line-height: 1.2;
+        }
+
+        .hero-text p {
+            font-size: 20px;
+            margin-bottom: 32px;
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.6;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .hero-primary {
+            background: white;
+            color: #667EEA;
+            padding: 16px 32px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 18px;
+            transition: transform 0.2s;
+            display: inline-block;
+        }
+
+        .hero-secondary {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 16px 32px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 18px;
+            border: 2px solid white;
+            transition: transform 0.2s;
+            display: inline-block;
+        }
+
+        .hero-primary:hover,
+        .hero-secondary:hover {
+            transform: translateY(-2px);
+        }
+
+        .hero-image-container {
+            position: relative;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-image-placeholder {
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            border: 3px dashed rgba(255, 255, 255, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 16px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .hero-image-placeholder svg {
+            width: 80px;
+            height: 80px;
+            opacity: 0.5;
+        }
+
+        .hero-image-text {
+            font-size: 18px;
+            font-weight: 500;
+        }
+
+        /* Phone Carousel */
+        .carousel-section {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 60px;
+            font-weight: bold;
+        }
+
+        .carousel-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .carousel-track {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            gap: 40px;
+            padding: 20px;
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .carousel-track::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .carousel-track::-webkit-scrollbar-track {
+            background: #E2E8F0;
+            border-radius: 10px;
+        }
+
+        .carousel-track::-webkit-scrollbar-thumb {
+            background: #667EEA;
+            border-radius: 10px;
+        }
+
+        .carousel-item {
+            flex: 0 0 auto;
+            width: 320px;
+            scroll-snap-align: center;
+            background: #F7FAFC;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .phone-mockup {
+            width: 100%;
+            aspect-ratio: 9/16;
+            background: #2D3748;
+            border-radius: 30px;
+            padding: 12px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            position: relative;
+        }
+
+        .phone-notch {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 25px;
+            background: #2D3748;
+            border-radius: 0 0 20px 20px;
+            z-index: 10;
+        }
+
+        .phone-screen {
+            width: 100%;
+            height: 100%;
+            background: #F5F7FA;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .screen-placeholder {
+            width: 90%;
+            height: 90%;
+            background: white;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 12px;
+            color: #718096;
+            font-size: 14px;
+            text-align: center;
+            padding: 20px;
+            border: 2px dashed #E2E8F0;
+        }
+
+        .carousel-item h3 {
+            font-size: 22px;
+            color: #2D3748;
+            text-align: center;
+        }
+
+        .carousel-item p {
+            color: #718096;
+            text-align: center;
+            line-height: 1.6;
+        }
+
+        .carousel-dots {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 30px;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            background: #CBD5E0;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .dot.active {
+            background: #667EEA;
+            width: 32px;
+            border-radius: 6px;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 80px 0;
+            background: #F5F7FA;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .feature-card {
+            padding: 30px;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.2);
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #667EEA, #764BA2);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .feature-card h3 {
+            font-size: 22px;
+            margin-bottom: 12px;
+            color: #2D3748;
+        }
+
+        .feature-card p {
+            color: #718096;
+            line-height: 1.8;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, #667EEA 0%, #764BA2 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 42px;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .cta-section p {
+            font-size: 20px;
+            margin-bottom: 40px;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-primary {
+            background: white;
+            color: #667EEA;
+            padding: 16px 40px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 18px;
+            transition: transform 0.2s;
+        }
+
+        .cta-secondary {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 16px 40px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 18px;
+            border: 2px solid white;
+            transition: transform 0.2s;
+        }
+
+        .cta-primary:hover,
+        .cta-secondary:hover {
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            background: #2D3748;
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        footer p {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        @media (max-width: 968px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-text h2 {
+                font-size: 36px;
+            }
+
+            .hero-image-container {
+                height: 300px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-text h2 {
+                font-size: 32px;
+            }
+
+            .hero-text p {
+                font-size: 16px;
+            }
+
+            .section-title {
+                font-size: 28px;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .carousel-item {
+                width: 280px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon">🎤</div>
+                    <h1>Speak Your First Draft</h1>
+                </div>
+                <a href="#download" class="cta-button">Download Now</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h2>Transform Your Voice Into Your Next Novel</h2>
+                    <p>The revolutionary voice-to-text writing app designed for novelists. Speak naturally and watch your story come to life with advanced organization tools, progress tracking, and seamless character management.</p>
+                    <div class="hero-buttons">
+                        <a href="#" class="hero-primary">Get Started Free</a>
+                        <a href="#features" class="hero-secondary">Learn More</a>
+                    </div>
+                </div>
+                <div class="hero-image-container">
+                    <div class="hero-image-placeholder">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                            <circle cx="8.5" cy="8.5" r="1.5"/>
+                            <polyline points="21 15 16 10 5 21"/>
+                        </svg>
+                        <span class="hero-image-text">Add Your Hero Image Here</span>
+                        <span style="font-size: 14px; opacity: 0.7;">Recommended size: 800x600px</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Phone Carousel Section -->
+    <section class="carousel-section">
+        <div class="container">
+            <h2 class="section-title">See How It Works</h2>
+            <div class="carousel-container">
+                <div class="carousel-track" id="carouselTrack">
+                    <!-- Carousel Item 1 -->
+                    <div class="carousel-item">
+                        <div class="phone-mockup">
+                            <div class="phone-notch"></div>
+                            <div class="phone-screen">
+                                <div class="screen-placeholder">
+                                    📱
+                                    <div>Add screenshot of<br><strong>Home Dashboard</strong></div>
+                                </div>
+                            </div>
+                        </div>
+                        <h3>Track Your Progress</h3>
+                        <p>Beautiful dashboard shows all your projects with real-time word counts, chapter tracking, and writing streaks at a glance.</p>
+                    </div>
+
+                    <!-- Carousel Item 2 -->
+                    <div class="carousel-item">
+                        <div class="phone-mockup">
+                            <div class="phone-notch"></div>
+                            <div class="phone-screen">
+                                <div class="screen-placeholder">
+                                    ✍️
+                                    <div>Add screenshot of<br><strong>Chapter Editor</strong></div>
+                                </div>
+                            </div>
+                        </div>
+                        <h3>Organize Effortlessly</h3>
+                        <p>Intuitive chapter and scene management lets you drag, drop, and reorder your content to find the perfect story structure.</p>
+                    </div>
+
+                    <!-- Carousel Item 3 -->
+                    <div class="carousel-item">
+                        <div class="phone-mockup">
+                            <div class="phone-notch"></div>
+                            <div class="phone-screen">
+                                <div class="screen-placeholder">
+                                    🎤
+                                    <div>Add screenshot of<br><strong>Voice Recording</strong></div>
+                                </div>
+                            </div>
+                        </div>
+                        <h3>Speak Your Story</h3>
+                        <p>Advanced voice-to-text technology captures your words naturally, allowing you to write at the speed of thought.</p>
+                    </div>
+
+                    <!-- Carousel Item 4 -->
+                    <div class="carousel-item">
+                        <div class="phone-mockup">
+                            <div class="phone-notch"></div>
+                            <div class="phone-screen">
+                                <div class="screen-placeholder">
+                                    👥
+                                    <div>Add screenshot of<br><strong>Character Profiles</strong></div>
+                                </div>
+                            </div>
+                        </div>
+                        <h3>Manage Characters</h3>
+                        <p>Keep detailed character profiles with custom fields, alignment tracking, and organized character groups for easy reference.</p>
+                    </div>
+
+                    <!-- Carousel Item 5 -->
+                    <div class="carousel-item">
+                        <div class="phone-mockup">
+                            <div class="phone-notch"></div>
+                            <div class="phone-screen">
+                                <div class="screen-placeholder">
+                                    📝
+                                    <div>Add screenshot of<br><strong>Notes System</strong></div>
+                                </div>
+                            </div>
+                        </div>
+                        <h3>Organize Your Ideas</h3>
+                        <p>Smart notes system keeps your research, plot ideas, and world-building details organized in categorized groups.</p>
+                    </div>
+                </div>
+                <div class="carousel-dots">
+                    <div class="dot active" onclick="scrollToSlide(0)"></div>
+                    <div class="dot" onclick="scrollToSlide(1)"></div>
+                    <div class="dot" onclick="scrollToSlide(2)"></div>
+                    <div class="dot" onclick="scrollToSlide(3)"></div>
+                    <div class="dot" onclick="scrollToSlide(4)"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <h2 class="section-title">Everything You Need to Write Your Novel</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🎤</div>
+                    <h3>Voice to Text</h3>
+                    <p>Speak naturally and watch your story unfold. Our advanced voice recognition captures every word, letting you write at the speed of thought.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">📚</div>
+                    <h3>Chapter & Scene Organization</h3>
+                    <p>Structure your novel with intuitive chapter and scene management. Drag, drop, and reorder with ease to find your perfect narrative flow.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">📈</div>
+                    <h3>Progress Tracking</h3>
+                    <p>Stay motivated with real-time word counts, chapter tracking, and writing streaks. Watch your novel grow day by day.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">👥</div>
+                    <h3>Character Management</h3>
+                    <p>Keep track of your characters with customizable profiles, alignment systems, and organized character groups.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">📝</div>
+                    <h3>Smart Notes System</h3>
+                    <p>Organize plot ideas, research, and world-building details in categorized note groups. Copy and move notes effortlessly.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">✨</div>
+                    <h3>Multiple Projects</h3>
+                    <p>Work on several novels simultaneously. Switch between projects and track individual progress for each story.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" id="download">
+        <div class="container">
+            <h2>Ready to Write Your Novel?</h2>
+            <p>Join thousands of authors already using Speak Your First Draft</p>
+            <div class="cta-buttons">
+                <a href="#" class="cta-primary">Download for iOS</a>
+                <a href="#" class="cta-primary">Download for Android</a>
+                <a href="#" class="cta-secondary">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Speak Your First Draft. All rights reserved.</p>
+            <p style="margin-top: 10px;">Your voice, your story.</p>
+        </div>
+    </footer>
+
+    <script>
+        const track = document.getElementById('carouselTrack');
+        const dots = document.querySelectorAll('.dot');
+
+        function scrollToSlide(index) {
+            const items = document.querySelectorAll('.carousel-item');
+            const item = items[index];
+            const scrollLeft = item.offsetLeft - (track.offsetWidth / 2) + (item.offsetWidth / 2);
+            
+            track.scrollTo({
+                left: scrollLeft,
+                behavior: 'smooth'
+            });
+
+            // Update dots
+            dots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === index);
+            });
+        }
+
+        // Auto-update dots on scroll
+        track.addEventListener('scroll', () => {
+            const items = document.querySelectorAll('.carousel-item');
+            const scrollPosition = track.scrollLeft + (track.offsetWidth / 2);
+            
+            items.forEach((item, index) => {
+                const itemPosition = item.offsetLeft + (item.offsetWidth / 2);
+                const distance = Math.abs(scrollPosition - itemPosition);
+                
+                if (distance < item.offsetWidth / 2) {
+                    dots.forEach((dot, i) => {
+                        dot.classList.toggle('active', i === index);
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+<!-- <html>
 	<head>
 		<title>Editorial by HTML5 UP</title>
 		<meta charset="utf-8" />
@@ -145,30 +847,6 @@
 							<!-- Section -->
 								<section>
 									<header class="major">
-										<h2>Ante interdum</h2>
-									</header>
-									<div class="mini-posts">
-										<article>
-											<a href="#" class="image"><img src="images/pic07.jpg" alt="" /></a>
-											<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore aliquam.</p>
-										</article>
-										<article>
-											<a href="#" class="image"><img src="images/pic08.jpg" alt="" /></a>
-											<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore aliquam.</p>
-										</article>
-										<article>
-											<a href="#" class="image"><img src="images/pic09.jpg" alt="" /></a>
-											<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore aliquam.</p>
-										</article>
-									</div>
-									<ul class="actions">
-										<li><a href="#" class="button">More</a></li>
-									</ul>
-								</section>
-
-							<!-- Section -->
-								<section>
-									<header class="major">
 										<h2>Get in touch</h2>
 									</header>
 									<p>Questions? Comments? Concerns?</p>
@@ -196,4 +874,4 @@
 			<script src="assets/js/main.js"></script>
 
 	</body>
-</html>
+</html> -->
